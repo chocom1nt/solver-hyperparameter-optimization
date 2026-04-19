@@ -1,0 +1,2 @@
+name,num_vars,num_binary,num_integer,num_continuous,num_constraints,obj_sense
+ej,3,0,3,0,1,min

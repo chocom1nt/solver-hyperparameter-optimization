@@ -1,0 +1,25 @@
+name: "SCIP grid search"
+
+tasks:
+  source: "data/raw"
+  filter:
+    # These values are only applied if `data/metadata.csv` exists.
+    # Example: min/max total variables.
+    min_vars: 0
+    max_vars: 1000000
+
+solvers:
+  - name: "SCIP"
+    class: "ScipSolver"
+    parameters:
+      # Examples of SCIP parameter keys. OR-Tools passes them as a raw
+      # SCIP parameter string: `key = value`.
+      limits/time: [10, 30, 60]
+      presolving/maxrounds: [0, 5]
+      branching/vanillafac: [0.0]
+    repetitions: 1
+
+output:
+  format: "csv"   # or: "sqlite"
+  path: "data/results/exp1.csv"
+

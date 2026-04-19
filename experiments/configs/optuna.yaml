@@ -1,0 +1,21 @@
+name: "SCIP Optuna optimization"
+
+tasks:
+  source: "data/raw"
+  filter:
+    min_vars: 0
+    max_vars: 1000000
+
+solvers:
+  - name: "SCIP"
+    class: "ScipSolver"
+    parameters:
+      # Параметры для оптимизации
+      limits/time: [10, 30, 60, 120]  # Фиксированный timelimit для оценки
+      presolving/maxrounds: [0, 5, 10, -1]
+      presolving/dual/freq: [0, 5, 10]
+      heuristics/coefdiving/freq: [-1, 5, 10, 20]
+
+output:
+  format: "csv"
+  path: "data/results/exp2.csv"

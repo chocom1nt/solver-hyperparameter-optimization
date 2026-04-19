@@ -1,0 +1,28 @@
+name: "SCIP grid search"
+
+tasks:
+  source: "data/raw"
+  filter:
+    min_vars: 0
+    max_vars: 1000000
+
+solvers:
+  - name: "SCIP"
+    class: "ScipSolver"
+    parameters:
+      # Time limit in seconds (seconds in SCIP)
+      limits/time: [10, 30, 60, 120]
+      # Presolving max rounds (integer)
+      # 0 = disabled, -1 = unlimited
+      presolving/maxrounds: [0, 5, -1]
+      # Dual presolving frequency (integer)
+      # 0 = disabled, positive = enabled at given frequency
+      presolving/dual/freq: [0, 10]
+      # Coefficient diving heuristic frequency (integer)
+      # -1 = disabled, positive = enabled at given frequency
+      heuristics/coefdiving/freq: [-1, 10, 20]
+    repetitions: 1
+
+output:
+  format: "csv"
+  path: "data/results/exp1.csv"
