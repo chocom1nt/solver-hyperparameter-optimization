@@ -23,3 +23,36 @@ data/results/
 # Logs
 *.log
 
+# LaTeX build artifacts
+*.aux
+*.fdb_latexmk
+*.fls
+*.lof
+*.lot
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.nav
+*.snm
+*.xdv
+*.bbl
+*.blg
+*.run.xml
+*.bcf
+*.vrb
+*.synctex(busy)
+*.bak
+*.bak*
+
+# PDF output
+*.pdf
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
